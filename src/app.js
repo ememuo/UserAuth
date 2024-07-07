@@ -16,6 +16,10 @@ app.use(bodyParser.json({ limit: "50mb" })); // support json encoded bodies
 // app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 1000000 }));
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 app.get("/userinfo", verifyToken, (req, res) => {
   res.json({ user: req.user });
 });
